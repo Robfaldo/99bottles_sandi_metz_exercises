@@ -1,16 +1,42 @@
 class Bottles
   def verse(num_of_bottles)
     <<~VERSE
-      #{num_of_bottles} #{bottle_or_bottles(num_of_bottles)} of beer on the wall, #{num_of_bottles} #{bottle_or_bottles(num_of_bottles)} of beer.
-      Take #{num_of_bottles == 1 ? 'it' : 'one'} down and pass it around, #{end_of_verse(num_of_bottles)}
+      #{first_part(num_of_bottles)}, #{second_part(num_of_bottles)}
+      #{third_part(num_of_bottles)}, #{fourth_part(num_of_bottles)}
     VERSE
   end
 
   private
 
-  def end_of_verse(num_of_bottles)
+  def first_part(num_of_bottles)
+    if num_of_bottles == 0
+      "No more bottles of beer on the wall"
+    else
+      "#{num_of_bottles} #{bottle_or_bottles(num_of_bottles)} of beer on the wall"
+    end
+  end
+
+  def second_part(num_of_bottles)
+    if num_of_bottles == 0
+      "no more bottles of beer."
+    else
+      "#{num_of_bottles} #{bottle_or_bottles(num_of_bottles)} of beer."
+    end
+  end
+
+  def third_part(num_of_bottles)
+    if num_of_bottles == 0
+      "Go to the store and buy some more"
+    else
+      "Take #{num_of_bottles == 1 ? 'it' : 'one'} down and pass it around"
+    end
+  end
+
+  def fourth_part(num_of_bottles)
     if num_of_bottles == 1
       "no more bottles of beer on the wall."
+    elsif num_of_bottles == 0
+      '99 bottles of beer on the wall.'
     else
       "#{num_of_bottles - 1} #{num_of_bottles - 1 == 1 ? 'bottle' : 'bottles' } of beer on the wall."
     end
