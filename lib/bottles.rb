@@ -6,6 +6,10 @@ class Bottles
     VERSE
   end
 
+  def verses(first_verse_bottles, second_verse_bottles)
+    "#{verse(first_verse_bottles)}\n#{verse(second_verse_bottles)}"
+  end
+
   private
 
   def first_part(num_of_bottles)
